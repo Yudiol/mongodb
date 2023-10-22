@@ -1,13 +1,12 @@
 package com.example.mogoDB.controller;
 
 import com.example.mogoDB.dto.UserDto;
-import com.example.mogoDB.model.User;
-import com.example.mogoDB.repository.UserMongoRepository;
 import com.example.mogoDB.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +20,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-  private final UserService userService;
+    private final UserService userService;
 
     @GetMapping()
     @Operation(summary = "Получение всех пользователей")
@@ -39,5 +38,11 @@ public class UserController {
     @Operation(summary = "Создать пользователя")
     public ResponseEntity<UserDto> create(@RequestBody UserDto userDto) {
         return ResponseEntity.status(201).body(userService.create(userDto));
+    }
+
+    @PatchMapping("/{id}")
+    @Operation(summary = "Обновить пользователя")
+    public ResponseEntity<UserDto> update(@PathVariable String id, @RequestBody UserDto userDto) {
+        return ResponseEntity.status(200).body(userService.update(id,userDto));
     }
 }

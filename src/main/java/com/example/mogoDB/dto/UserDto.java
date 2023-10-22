@@ -17,5 +17,5 @@ public class UserDto {
     @Schema(description = "фамилия", example = "Иванов")
     private String surname;
     @Schema(description = "возраст", example = "35")
-    private int age;
+    private Integer age;
 }
