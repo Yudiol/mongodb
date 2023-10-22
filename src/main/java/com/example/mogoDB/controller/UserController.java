@@ -1,7 +1,9 @@
 package com.example.mogoDB.controller;
 
+import com.example.mogoDB.dto.UserDto;
 import com.example.mogoDB.model.User;
 import com.example.mogoDB.repository.UserMongoRepository;
+import com.example.mogoDB.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,23 +21,23 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    private final UserMongoRepository repository;
+  private final UserService userService;
 
     @GetMapping()
     @Operation(summary = "Получение всех пользователей")
-    public ResponseEntity<List<User>> findAll() {
-        return ResponseEntity.status(200).body(repository.findAll());
+    public ResponseEntity<List<UserDto>> findAll() {
+        return ResponseEntity.status(200).body(userService.findAll());
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "Получение пользователя по id")
-    public ResponseEntity<User> findById(@PathVariable String id) {
-        return ResponseEntity.status(200).body(repository.findById(id).orElseThrow());
+    public ResponseEntity<UserDto> findById(@PathVariable String id) {
+        return ResponseEntity.status(200).body(userService.findById(id));
     }
 
     @PostMapping()
     @Operation(summary = "Создать пользователя")
-    public ResponseEntity<User> create(@RequestBody User user) {
-        return ResponseEntity.status(201).body(repository.insert(user));
+    public ResponseEntity<UserDto> create(@RequestBody UserDto userDto) {
+        return ResponseEntity.status(201).body(userService.create(userDto));
     }
 }
