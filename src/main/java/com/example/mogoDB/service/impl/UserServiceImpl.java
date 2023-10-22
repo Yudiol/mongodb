@@ -57,4 +57,10 @@ public class UserServiceImpl implements UserService {
     public void delete(String id) {
         repository.deleteById(id);
     }
+
+    @Override
+    public List<UserDto> findByName(String name) {
+        List<User> list = repository.findByName(name);
+        return list.stream().map(userMapper::toUserDto).collect(Collectors.toList());
+    }
 }
