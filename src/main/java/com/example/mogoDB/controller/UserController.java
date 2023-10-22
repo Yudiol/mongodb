@@ -5,6 +5,7 @@ import com.example.mogoDB.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,6 +44,12 @@ public class UserController {
     @PatchMapping("/{id}")
     @Operation(summary = "Обновить пользователя")
     public ResponseEntity<UserDto> update(@PathVariable String id, @RequestBody UserDto userDto) {
-        return ResponseEntity.status(200).body(userService.update(id,userDto));
+        return ResponseEntity.status(200).body(userService.update(id, userDto));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable String id) {
+        userService.delete(id);
+        return ResponseEntity.status(200).body("");
     }
 }

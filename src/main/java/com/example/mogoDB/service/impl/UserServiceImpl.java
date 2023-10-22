@@ -51,4 +51,10 @@ public class UserServiceImpl implements UserService {
         repository.save(user);
         return userMapper.toUserDto(user);
     }
+
+    @Override
+    @Transactional
+    public void delete(String id) {
+        repository.deleteById(id);
+    }
 }

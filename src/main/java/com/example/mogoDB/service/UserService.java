@@ -12,4 +12,6 @@ public interface UserService {
     UserDto create(UserDto userDto);
 
     UserDto update(String id,UserDto userDto);
+
+    void delete(String id);
 }
