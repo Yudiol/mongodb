@@ -28,10 +28,31 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-        </dependency>
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.mongodb</groupId>-->
+        <!--            <artifactId>mongodb-driver-core</artifactId>-->
+        <!--            <version>4.9.0</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.mongodb</groupId>-->
+        <!--            <artifactId>mongodb-driver-sync</artifactId>-->
+        <!--            <version>4.9.0</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.mongodb</groupId>-->
+        <!--            <artifactId>bson</artifactId>-->
+        <!--            <version>4.9.0</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.liquibase.ext</groupId>-->
+        <!--            <artifactId>liquibase-mongodb</artifactId>-->
+        <!--            <version>4.24.0</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.liquibase</groupId>-->
+        <!--            <artifactId>liquibase-core</artifactId>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -39,12 +60,12 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-        <!--		<dependency>-->
-        <!--			<groupId>org.springframework.boot</groupId>-->
-        <!--			<artifactId>spring-boot-docker-compose</artifactId>-->
-        <!--			<scope>runtime</scope>-->
-        <!--			<optional>true</optional>-->
-        <!--		</dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-docker-compose</artifactId>-->
+<!--            <scope>runtime</scope>-->
+<!--            <optional>true</optional>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok-mapstruct-binding</artifactId>
